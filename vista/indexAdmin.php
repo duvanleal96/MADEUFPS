@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -10,23 +7,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>MADEUFPS</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
- <!-- Bootstrap 3.3.7 -->
- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
- <!-- Font Awesome -->
- <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
- <!-- Ionicons -->
- <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
- <!-- Theme style -->
- <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
- <!-- AdminLTE Skins. Choose a skin from the css/skins
-      folder instead of downloading all of them to reduce the load. -->
- <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-        
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -53,15 +47,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-      
-          
+     
+          <!-- /.messages-menu -->
 
          
           
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Docente</span>
+              <span class="hidden-xs">Administrador</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -69,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Docente
+                  Administrador
                 </p>
               </li>
               <!-- Menu Body -->
@@ -77,10 +71,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Datos</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="./login.html" class="btn btn-default btn-flat">Cerrar sesion</a>
+                  <a href="./login.html" class="btn btn-default btn-flat">Cerrar sesión</a>
                 </div>
               </li>
             </ul>
@@ -109,12 +103,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Docente</p>
+          <p>Admin</p>
           
         </div>
       </div>
       <!-- search form -->
-    
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -124,30 +126,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
        
 
-      
+       
 
-        <!--li class="active treeview">
-          <a href="#">
-            <i class="fa fa-user-o"></i> <span>Inicio de Sesión</span>
-           
-          </a>
-        </li!-->
-
+        
 
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>Registro de Curso</span>
+            <span>Registrar Docente</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="./pages/registroCurso.html"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
-            <li><a href="./pages/registroNotas.html"><i class="fa fa-circle-o"></i>Notas</a></li>
-
+            <li><a href="pages/registroDocente.php"><i class="fa fa-circle-o"></i>Registro Docente</a></li>
+       
           </ul>
         </li>
+
+
+        
+        
+        
 
 
 
@@ -163,7 +163,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-     
+      <h1>
+        Page Header
+        <small>Optional description</small>
+      </h1>
       
     </section>
 
@@ -183,10 +186,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-     
+      Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>UFPS; 2020 <a href="#">facebook</a>.</strong> Madeufps
+    <strong>UFPS; 2020 <a href="#">Company</a>.</strong> Madeufps
   </footer>
 
   <!-- Control Sidebar -->

@@ -1,296 +1,243 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MADEUFPS</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
- <!-- Bootstrap 3.3.7 -->
- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
- <!-- Font Awesome -->
- <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
- <!-- Ionicons -->
- <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
- <!-- Theme style -->
- <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
- <!-- AdminLTE Skins. Choose a skin from the css/skins
-      folder instead of downloading all of them to reduce the load. -->
- <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-  
-    
-</head>
+<?php require_once 'header.php'; ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-
-  <!-- Main Header -->
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>MADEUFPS</b></span>
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          
-          <!-- /.messages-menu -->
-
-         
-          
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Docente</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="../dist/img/avatar5.png" class="img-circle" alt="User Image">
-
-                <p>
-                  Docente
-                </p>
-              </li>
-              <!-- Menu Body -->
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                </div>
-                <div class="pull-right">
-                  <a href="C:/Users/Edyson/Desktop/AYD/sofware/madeufps/login.html" class="btn btn-default btn-flat">Cerrar Sesión</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-         
-
-          <!-- Control Sidebar Toggle Button -->
-         
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-
-
-
-
-
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../dist/img/avatar5.png" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Docente</p>
-          
-        </div>
-      </div>
-      <!-- search form -->
-     
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        
-        
-        <li class="header">Menu</li>
-
-       
-
-      
-
-      
-
-
-        <li class="treeview">
-            <a href="#">
-              <i class="fa fa-files-o"></i>
-              <span>Registro Curso</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="./registroCurso.html"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
-            <li><a href="./registroNotas.html"><i class="fa fa-circle-o"></i>Notas</a></li>
-            </ul>
-          </li>
-
-
-        
-       
-        
-        
-
-
-       
-        
-        
-
-
-
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-
-
-  
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Subir notas
-      </h1>
-      
-    </section>
-
-    <!-- Main content -->
-    <section class="content container-fluid">
-
-
-        <div class="register-box-body ">
-            <p class="login-box-msg">Notas</p>
-        
-            <form action="../../index.html" method="post">
-
-
-
-              <div class="row">
-                <div class="col-xs-6 col-sm-4"></div>
-                <div class="col-xs-6 col-sm-4">
-                  <div class="form-group has-feedback  ">
-                    <input type="text" class="form-control" placeholder="Nombre">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                  </div>
-
-                  <div class="form-group has-feedback ">
-                    <input type="text" class="form-control" placeholder="Codigo">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                  </div>
-
-                  <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Nota">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                  </div>
-
-                  <div class="row">
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                      <button type="submit" class="btn btn-primary btn-block btn-flat">Calificar</button>
-                    </div>
-                    <!-- /.col -->
-                  </div>
-
-                </div>
-               
+  <div class="wrapper">
+    <?php require_once 'menuDocente.php'; ?>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>Subir notas</h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <!-- /.box -->
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Listados de los estudiantes</h3>
               </div>
-
-
-
-            </form>
-        
-            
-        
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>C&oacute;digo</th>
+                      <th>Nombre</th>
+                      <th>Nota</th>
+                      <th>Ver</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 4.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td> 4</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 5.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 5.5
+                      </td>
+                      <td>Win 95+</td>
+                      <td>5.5</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 6
+                      </td>
+                      <td>Win 98+</td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet Explorer 7</td>
+                      <td>Win XP SP2+</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <td>Trident</td>
+                      <td>AOL browser (AOL desktop)</td>
+                      <td>Win XP</td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.7</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Firefox 1.5</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Firefox 2.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Firefox 3.0</td>
+                      <td>Win 2k+ / OSX.3+</td>
+                      <td>1.9</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Camino 1.0</td>
+                      <td>OSX.2+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Camino 1.5</td>
+                      <td>OSX.3+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Netscape 7.2</td>
+                      <td>Win 95+ / Mac OS 8.6-9.2</td>
+                      <td>1.7</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Netscape Browser 8</td>
+                      <td>Win 98SE+</td>
+                      <td>1.7</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Netscape Navigator 9</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.0</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.1</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.1</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.2</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.2</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.3</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.3</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.4</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.4</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.5</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.5</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.6</td>
+                      <td>Win 95+ / OSX.1+</td>
+                      <td>1.6</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.7</td>
+                      <td>Win 98+ / OSX.1+</td>
+                      <td>1.7</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Mozilla 1.8</td>
+                      <td>Win 98+ / OSX.1+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Seamonkey 1.1</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td>1.8</td>
+                    </tr>
+                    <tr>
+                      <td>Gecko</td>
+                      <td>Epiphany 2.20</td>
+                      <td>Gnome</td>
+                      <td>1.8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
           </div>
-
-
-        
-
-
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-
-    </section>
-    <!-- /.content -->
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- /.content-wrapper -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-     
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- Default to the left -->
-    <strong>UFPS; 2020 <a href="#">Company</a>.</strong> Madeufps
-  </footer>
-
-  <!-- Control Sidebar -->
-  
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
-   
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+    <!-- /.content-wrapper -->
+    <?php require_once 'footer.php'; ?>
+    <script>
+      $(document).ready(function() {
+        $('#example1').DataTable({
+          'language': {
+            paginate: {
+              next: 'Siguiente',
+              previous: 'Anterior',
+              last: 'Último',
+              first: 'Primero'
+            },
+            info: 'Mostrando _START_ a _END_ de _TOTAL_ resultados',
+            emptyTable: 'No hay registros',
+            infoEmpty: '0 Registros',
+            search: 'Buscar: ',
+            lengthMenu: "Mostrar _MENU_ Entradas",
+            infoFiltered: "(Filtrado de _MAX_ total entradas)"
+          }
+        });
+      });
+    </script>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
 </body>
+
 </html>

@@ -2,18 +2,19 @@
 
 require_once '../controlador/conexion.php';
 
-//die(json_encode($_POST));
+die(json_encode($_POST));
 
 $ingresarUsuario = $_POST['codigo'];
 $ingresarContrasena = $_POST['contrasena'];
 $ingresarTipo = $_POST['tipo'];
 
-if ($ingresarTipo == 'Administrador') {
-    $sql = "SELECT nombre, codigo, documento FROM administrador WHERE codigo = '$ingresarUsuario' AND documento = '$ingresarContrasena'";
+$sql = "SELECT persona.nombre, persona.codigo, persona.documento FROM persona INNER JOIN rol ON persona.rol = rol.id_rol WHERE persona.codigo = '$ingresarUsuario' 
+        AND persona.documento = '$ingresarContrasena' and rol.nombre = '$ingresarTipo'";
 
-    $ejecutar = mysqli_query($conexion, $sql);
-    $rowcount = mysqli_num_rows($ejecutar);
+$ejecutar = mysqli_query($conexion, $sql);
+$rowcount = mysqli_num_rows($ejecutar);
 
+if ($ingresarTipo == 'Director') {
     if ($rowcount > 0) {
         $row = $ejecutar->fetch_array(MYSQLI_ASSOC);
         session_start();
@@ -29,33 +30,7 @@ if ($ingresarTipo == 'Administrador') {
         $respuesta = array('respuesta' => 'error');
     }
     echo json_encode($respuesta);
-} else if ($ingresarTipo == 'Estudiante') {
-    $sql = "SELECT nombre, codigo, documento FROM alumno WHERE codigo = '$ingresarUsuario' AND documento = '$ingresarContrasena'";
-
-    $ejecutar = mysqli_query($conexion, $sql);
-    $rowcount = mysqli_num_rows($ejecutar);
-
-    if ($rowcount > 0) {
-        $row = $ejecutar->fetch_array(MYSQLI_ASSOC);
-        session_start();
-        $_SESSION['usuario'] = $row['nombre'];
-        $_SESSION['codigo'] = $row['codigo'];
-        $respuesta = array(
-            'respuesta' => 'exitoso',
-            'rol' => 'alumno',
-            'usuario' => $row['nombre'],
-            'codigo' => $row['codigo'],
-        );
-    } else {
-        $respuesta = array('respuesta' => 'error');
-    }
-    echo json_encode($respuesta);
 } else if ($ingresarTipo == 'Docente') {
-    $sql = "SELECT nombre, codigo, documento FROM docente WHERE codigo = '$ingresarUsuario' AND documento = '$ingresarContrasena'";
-
-    $ejecutar = mysqli_query($conexion, $sql);
-    $rowcount = mysqli_num_rows($ejecutar);
-
     if ($rowcount > 0) {
         $row = $ejecutar->fetch_array(MYSQLI_ASSOC);
         session_start();
@@ -64,6 +39,22 @@ if ($ingresarTipo == 'Administrador') {
         $respuesta = array(
             'respuesta' => 'exitoso',
             'rol' => 'docente',
+            'usuario' => $row['nombre'],
+            'codigo' => $row['codigo'],
+        );
+    } else {
+        $respuesta = array('respuesta' => 'error');
+    }
+    echo json_encode($respuesta);
+} else if ($ingresarTipo == 'Estudiante') {
+    if ($rowcount > 0) {
+        $row = $ejecutar->fetch_array(MYSQLI_ASSOC);
+        session_start();
+        $_SESSION['usuario'] = $row['nombre'];
+        $_SESSION['codigo'] = $row['codigo'];
+        $respuesta = array(
+            'respuesta' => 'exitoso',
+            'rol' => 'alumno',
             'usuario' => $row['nombre'],
             'codigo' => $row['codigo'],
         );

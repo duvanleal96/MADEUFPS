@@ -16,6 +16,46 @@
       <section class="content">
         <div class="row">
           <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Seleccione la materia a calificar</h3>
+              </div>
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-xs-3"></div>
+                  <div class="col-xs-6">
+                    <div class="form-group" style="width: 100%;">
+                      <select class="form-control" id="docente" name="docente">
+                        <option>Seleccione el doncente</option>
+                        <?php
+                        try {
+                          require_once '../../controlador/conexion.php';
+                          $sql = "SELECT curso.id_curso, curso.nombre FROM curso INNER JOIN persona ON curso.docente = persona.codigo WHERE persona.codigo =  '100'";
+                          $resultado = $conexion->query($sql);
+                        } catch (Exception $e) {
+                          $error = $e->getMessage();
+                        }
+                        while ($estudiante = mysqli_fetch_array($resultado)) { ?>
+                          <option value="<?php echo $estudiante['id_curso']?>"><?php echo $estudiante['id_curso'] . ' - ' . $estudiante['nombre']; ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-3"></div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4"></div>
+                  <div class="col-xs-4">
+                    <button type="button" class="btn btn-block btn-danger">Cargar</button>
+                  </div>
+                  <div class="col-xs-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
             <!-- /.box -->
             <div class="box">
               <div class="box-header">
@@ -33,169 +73,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+
+
+                    ?>
                     <tr>
                       <td>Trident</td>
                       <td>Internet
                         Explorer 4.0
                       </td>
                       <td>Win 95+</td>
-                      <td> 4</td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 5.0
-                      </td>
-                      <td>Win 95+</td>
-                      <td>5</td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 5.5
-                      </td>
-                      <td>Win 95+</td>
-                      <td>5.5</td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 6
-                      </td>
-                      <td>Win 98+</td>
-                      <td>6</td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet Explorer 7</td>
-                      <td>Win XP SP2+</td>
-                      <td>7</td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>AOL browser (AOL desktop)</td>
-                      <td>Win XP</td>
-                      <td>6</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.7</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Firefox 1.5</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Firefox 2.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Firefox 3.0</td>
-                      <td>Win 2k+ / OSX.3+</td>
-                      <td>1.9</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Camino 1.0</td>
-                      <td>OSX.2+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Camino 1.5</td>
-                      <td>OSX.3+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Netscape 7.2</td>
-                      <td>Win 95+ / Mac OS 8.6-9.2</td>
-                      <td>1.7</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Netscape Browser 8</td>
-                      <td>Win 98SE+</td>
-                      <td>1.7</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Netscape Navigator 9</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.0</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.1</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.1</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.2</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.2</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.3</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.3</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.4</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.4</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.5</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.5</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.6</td>
-                      <td>Win 95+ / OSX.1+</td>
-                      <td>1.6</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.7</td>
-                      <td>Win 98+ / OSX.1+</td>
-                      <td>1.7</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Mozilla 1.8</td>
-                      <td>Win 98+ / OSX.1+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Seamonkey 1.1</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td>1.8</td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Epiphany 2.20</td>
-                      <td>Gnome</td>
-                      <td>1.8</td>
+                      <td align="center"><a class="btn btn-social-icon btn-facebook"><i class="fa fa-eye"></i></a></td>
                     </tr>
                   </tbody>
                 </table>

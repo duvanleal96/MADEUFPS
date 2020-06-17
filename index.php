@@ -3,7 +3,6 @@
 <!-- Custom style Sweetalert2 -->
 <link href="vista/css/sweetalert2.min.css" rel="stylesheet">
 
-
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
@@ -25,18 +24,19 @@
                 <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="modelo/login.php">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" id="usuario" name="codigo" value="" placeholder="Codigo">
+						<input type="text" class="form-control" id="usuario" name="codigo" value="" placeholder="Codigo">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" class="form-control" id="password" name="contrasena" placeholder="Password">
+						<input type="password" class="form-control" id="password" name="contrasena" placeholder="Password">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-eye-open" onclick="mostrarPassword()"></i></span>
                     </div>
                     <div class="input-group" style="width: 100%;">
                         <select class="form-control" id="tipo" name="tipo">
                             <option>Seleccione el rol</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Estudiante">Estudiante</option>
+                            <option value="Director">Director</option>
                             <option value="Docente">Docente</option>
+                            <option value="Estudiante">Estudiante</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -303,3 +303,4 @@
 <!-- <script src="vista/js/sweetalert2.min.js"></script> -->
 <script src="vista/js/sweetalert2.min.js"></script>
 <script src="vista/js/login.js"></script>
+

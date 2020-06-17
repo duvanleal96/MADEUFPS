@@ -46,7 +46,7 @@ $(document).ready(function() {
     $("#FormRegistroCurso").on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
-        console.log(datos);
+        //console.log(datos);
         $.ajax({
             url: $(this).attr("action"),
             data: datos,

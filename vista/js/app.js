@@ -197,3 +197,34 @@ $(function() {
     });
 
 });
+
+function mostrarPassword() {
+    var cambio = document.getElementById("password");
+    if (cambio.type == "password") {
+        cambio.type = "text";
+        $('.icon').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close');
+    } else {
+        cambio.type = "password";
+        $('.icon').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open');
+    }
+}
+
+/* $(document).ready(function() {
+    //CheckBox mostrar contraseña
+    $('#ShowPassword').click(function() {
+        $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+}); */
+
+/* $(document).ready(function() {
+    $('#mostrar').click(function() {
+        if ($(this).hasClass('glyphicon glyphicon-eye-close')) {
+            $('#password').removeAttr('type');
+            $('#mostrar').addClass('glyphicon glyphicon-eye-close').removeClass('glyphicon glyphicon-eye-open');
+        } else {
+            //Establecemos el atributo y valor
+            $('#password').attr('type', 'password');
+            $('#mostrar').addClass('glyphicon glyphicon-eye-open').removeClass('glyphicon glyphicon-eye-close');
+        }
+    });
+}); */

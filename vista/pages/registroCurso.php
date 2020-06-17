@@ -32,12 +32,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="col-xs-2 col-sm-2"></div>
               <div class="col-xs-8 col-sm-8">
                 <div class="form-group has-feedback">
-                  <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" required>
+                  <input type="text" class="form-control" placeholder="Nombre de la materia" name="nombre" id="nombre" required>
                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                  <input type="number" class="form-control" placeholder="Código" name="codigo" id="codigo" required>
+                  <input type="number" class="form-control" placeholder="Código de la materia" name="codigoCurso" id="codigoCurso" required>
                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group" style="width: 100%;">
+                  <select class="form-control" id="docente" name="docente">
+                    <option>Seleccione el doncente</option>
+                    <?php
+                    try{
+                      require_once '../../controlador/conexion.php';
+                      $sql = "SELECT persona.codigo, persona.nombre FROM persona INNER JOIN rol ON persona.rol = rol.id_rol where rol.nombre = 'Docente'";
+                      $resultado = $conexion->query($sql);
+                    }catch(Exception $e){
+                      $error = $e->getMessage();
+                    }
+
+                    while ($estudiante = mysqli_fetch_array($resultado)) { ?>
+                      <option value="<?php echo $estudiante['codigo']?>"><?php echo $estudiante['codigo'] . ' - ' . $estudiante['nombre']; ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group has-feedback">
                   <input type="number" class="form-control" placeholder="Cantidad de estudiantes" name="estudiantes" id="estudiantes" required>

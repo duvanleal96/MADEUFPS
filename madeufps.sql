@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2020 a las 02:56:28
+-- Tiempo de generación: 22-06-2020 a las 16:21:27
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -39,15 +39,13 @@ CREATE TABLE `actividad` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno`
+-- Estructura de tabla para la tabla `calificar_estudiante`
 --
 
-CREATE TABLE `alumno` (
-  `documento` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `codigo` varchar(50) DEFAULT NULL,
-  `direccion` varchar(50) DEFAULT NULL,
-  `correo_institucional` varchar(50) DEFAULT NULL
+CREATE TABLE `calificar_estudiante` (
+  `id_calificacion` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `nota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -80,9 +78,17 @@ CREATE TABLE `cargar_microcurriculo` (
 
 CREATE TABLE `curso` (
   `id_curso` int(11) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `num_estudiantes` int(11) DEFAULT NULL
+  `nombre` varchar(50) NOT NULL,
+  `docente` int(11) NOT NULL,
+  `num_estudiantes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`id_curso`, `nombre`, `docente`, `num_estudiantes`) VALUES
+(987, 'seguridad', 1151464, 10);
 
 -- --------------------------------------------------------
 
@@ -93,20 +99,6 @@ CREATE TABLE `curso` (
 CREATE TABLE `descargar_actividad` (
   `id_descarga` int(11) NOT NULL,
   `id_actividad` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `docente`
---
-
-CREATE TABLE `docente` (
-  `documento` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `codigo` varchar(50) DEFAULT NULL,
-  `direccion` varchar(50) DEFAULT NULL,
-  `correo_institucional` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -128,11 +120,56 @@ CREATE TABLE `evaluar_actividad` (
 --
 
 CREATE TABLE `grupo_alumno` (
-  `id_grupo` int(11) NOT NULL,
-  `id_docente` int(11) DEFAULT NULL,
-  `id_alumno` int(11) DEFAULT NULL,
-  `id_curso` int(11) DEFAULT NULL
+  `idgrupo` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `nota` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `persona`
+--
+
+CREATE TABLE `persona` (
+  `documento` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`documento`, `nombre`, `codigo`, `direccion`, `telefono`, `correo`, `rol`) VALUES
+(1090, 'adriana quijano', 1151464, 'avenida 8 ', 2147483647, 'edysonleal@gmail.com', 2),
+(9638, 'duvan leal', 9638, 'avenida 8 ', 2147483647, 'adriana@gmail.com', 3),
+(12345, 'edyson', 12345, 'cucuta', 3154871, 'edysonleal3@gmail.com', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `id_rol` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`id_rol`, `nombre`) VALUES
+(1, 'Director'),
+(2, 'Docente'),
+(3, 'Estudiante');
 
 -- --------------------------------------------------------
 
@@ -159,10 +196,11 @@ ALTER TABLE `actividad`
   ADD KEY `id_curso` (`id_curso`);
 
 --
--- Indices de la tabla `alumno`
+-- Indices de la tabla `calificar_estudiante`
 --
-ALTER TABLE `alumno`
-  ADD PRIMARY KEY (`documento`);
+ALTER TABLE `calificar_estudiante`
+  ADD PRIMARY KEY (`id_calificacion`),
+  ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `cargar_actividad`
@@ -182,7 +220,8 @@ ALTER TABLE `cargar_microcurriculo`
 -- Indices de la tabla `curso`
 --
 ALTER TABLE `curso`
-  ADD PRIMARY KEY (`id_curso`);
+  ADD PRIMARY KEY (`id_curso`),
+  ADD KEY `docente` (`docente`);
 
 --
 -- Indices de la tabla `descargar_actividad`
@@ -190,12 +229,6 @@ ALTER TABLE `curso`
 ALTER TABLE `descargar_actividad`
   ADD PRIMARY KEY (`id_descarga`),
   ADD KEY `id_actividad` (`id_actividad`);
-
---
--- Indices de la tabla `docente`
---
-ALTER TABLE `docente`
-  ADD PRIMARY KEY (`documento`);
 
 --
 -- Indices de la tabla `evaluar_actividad`
@@ -208,8 +241,23 @@ ALTER TABLE `evaluar_actividad`
 -- Indices de la tabla `grupo_alumno`
 --
 ALTER TABLE `grupo_alumno`
-  ADD PRIMARY KEY (`id_grupo`),
-  ADD KEY `id_alumno` (`id_alumno`);
+  ADD PRIMARY KEY (`idgrupo`),
+  ADD KEY `id_alumno` (`id_alumno`),
+  ADD KEY `id_curso` (`id_curso`);
+
+--
+-- Indices de la tabla `persona`
+--
+ALTER TABLE `persona`
+  ADD PRIMARY KEY (`documento`),
+  ADD UNIQUE KEY `codigo` (`codigo`),
+  ADD KEY `rol` (`rol`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`id_rol`);
 
 --
 -- Indices de la tabla `tipo_actividad`
@@ -229,6 +277,12 @@ ALTER TABLE `actividad`
   MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `calificar_estudiante`
+--
+ALTER TABLE `calificar_estudiante`
+  MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `cargar_actividad`
 --
 ALTER TABLE `cargar_actividad`
@@ -239,12 +293,6 @@ ALTER TABLE `cargar_actividad`
 --
 ALTER TABLE `cargar_microcurriculo`
   MODIFY `id_carga` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `curso`
---
-ALTER TABLE `curso`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `descargar_actividad`
@@ -262,7 +310,13 @@ ALTER TABLE `evaluar_actividad`
 -- AUTO_INCREMENT de la tabla `grupo_alumno`
 --
 ALTER TABLE `grupo_alumno`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idgrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1157;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_actividad`
@@ -275,50 +329,23 @@ ALTER TABLE `tipo_actividad`
 --
 
 --
--- Filtros para la tabla `actividad`
+-- Filtros para la tabla `curso`
 --
-ALTER TABLE `actividad`
-  ADD CONSTRAINT `actividad_ibfk_1` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`documento`),
-  ADD CONSTRAINT `actividad_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`);
-
---
--- Filtros para la tabla `cargar_actividad`
---
-ALTER TABLE `cargar_actividad`
-  ADD CONSTRAINT `cargar_actividad_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`);
-
---
--- Filtros para la tabla `cargar_microcurriculo`
---
-ALTER TABLE `cargar_microcurriculo`
-  ADD CONSTRAINT `cargar_microcurriculo_ibfk_1` FOREIGN KEY (`documento`) REFERENCES `docente` (`documento`),
-  ADD CONSTRAINT `cargar_microcurriculo_ibfk_2` FOREIGN KEY (`documento`) REFERENCES `alumno` (`documento`);
-
---
--- Filtros para la tabla `descargar_actividad`
---
-ALTER TABLE `descargar_actividad`
-  ADD CONSTRAINT `descargar_actividad_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`);
-
---
--- Filtros para la tabla `evaluar_actividad`
---
-ALTER TABLE `evaluar_actividad`
-  ADD CONSTRAINT `evaluar_actividad_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`);
+ALTER TABLE `curso`
+  ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`docente`) REFERENCES `persona` (`codigo`);
 
 --
 -- Filtros para la tabla `grupo_alumno`
 --
 ALTER TABLE `grupo_alumno`
-  ADD CONSTRAINT `grupo_alumno_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`documento`),
-  ADD CONSTRAINT `grupo_alumno_ibfk_2` FOREIGN KEY (`id_alumno`) REFERENCES `docente` (`documento`),
-  ADD CONSTRAINT `grupo_alumno_ibfk_3` FOREIGN KEY (`id_alumno`) REFERENCES `curso` (`id_curso`);
+  ADD CONSTRAINT `grupo_alumno_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `persona` (`codigo`),
+  ADD CONSTRAINT `grupo_alumno_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`);
 
 --
--- Filtros para la tabla `tipo_actividad`
+-- Filtros para la tabla `persona`
 --
-ALTER TABLE `tipo_actividad`
-  ADD CONSTRAINT `tipo_actividad_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`);
+ALTER TABLE `persona`
+  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`rol`) REFERENCES `rol` (`id_rol`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

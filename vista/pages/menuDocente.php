@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+$nombre = $_SESSION['usuario'];
+
+?>
+
 <!-- Main Header -->
 <header class="main-header">
     <!-- Logo -->
@@ -26,13 +33,13 @@
                         <!-- User image -->
                         <li class="user-header">
                             <img src="../dist/img/avatar5.png" class="img-circle" alt="User Image">
-                            <p>Docente</p>
+                            <p><?php echo $nombre; ?></p>
                         </li>
                         <!-- Menu Body -->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                <a href="Perfil_docente.php" class="btn btn-default btn-flat">Perfil</a>
                             </div>
                             <div class="pull-right">
                                 <a href="salir.php" class="btn btn-default btn-flat">Cerrar sesion</a>
@@ -63,15 +70,28 @@
             <li class="header">Menu</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>Registro Curso</span>
+                    <i class="fa fa-file"></i>
+                    <span>Curso</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="registroCurso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
-                    <li><a href="registroNotas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
+                    <li><a href="Registrar_curso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
+                    <li><a href="Registrar_notas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Estudiante</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="Registrar_estudiante.php"><i class="fa fa-circle-o"></i>Registro estudiante</a></li>
+                    <li><a href="Asignar_estudiante.php"><i class="fa fa-circle-o"></i>Asignar estudiante</a></li>
                 </ul>
             </li>
         </ul>

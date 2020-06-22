@@ -2,13 +2,13 @@ $(document).ready(function() {
     $("#form").on('submit', function(e) {
         e.preventDefault();
         var datos = $(this).serializeArray();
-        console.log(datos);
+        //console.log(datos);
         $.ajax({
             url: $(this).attr("action"),
             data: datos,
             type: $(this).attr("method"),
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 var resultado = JSON.parse(data);
                 if (resultado.respuesta == 'exitoso') {
                     Swal.fire(
@@ -34,6 +34,12 @@ $(document).ready(function() {
                         icon: 'error',
                         title: 'Error',
                         text: 'Usuario y/o contraseña incorrectos'
+                    })
+                } else if (resultado.respuesta == 'seleccion') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Debes de seleccionar un rol correcto'
                     })
                 }
             }

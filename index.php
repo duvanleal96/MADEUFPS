@@ -33,7 +33,7 @@
                     </div>
                     <div class="input-group" style="width: 100%;">
                         <select class="form-control" id="tipo" name="tipo">
-                            <option>Seleccione el rol</option>
+                            <option value="Seleccione">Seleccione el rol</option>
                             <option value="Director">Director</option>
                             <option value="Docente">Docente</option>
                             <option value="Estudiante">Estudiante</option>

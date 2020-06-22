@@ -5,7 +5,7 @@ try {
     /* CONEXION CON EL SERVIDOR LOCAL PC */
     $conexion = mysqli_connect("localhost","root","","madeufps");
     /* CONEXION CON EL SERVIDOR GIDIS UFPS */
-    //$conexion = mysqli_connect("localhost","made_admin","ayd2020","made_madeufps");
+    //$conexion = mysqli_connect("localhost","madeufps_admin","ayd2020","madeufps_madeufps");
     //echo "Connected successfully";
 } catch (PDOException $error) {
     echo 'Connection error: ' . $error->getMessage();

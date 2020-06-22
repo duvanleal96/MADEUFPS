@@ -2,6 +2,13 @@
 
 <html>
 
+<?php
+
+session_start();
+$nombre = $_SESSION['usuario'];
+
+?>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +37,7 @@
     <!-- Main Header -->
     <header class="main-header">
       <!-- Logo -->
-      <a href="index2.html" class="logo">
+      <a href="indexAdmin.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>MADEUFPS</b></span>
@@ -55,15 +62,13 @@
                 <!-- User image -->
                 <li class="user-header">
                   <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
-                  <p>
-                    Administrador
-                  </p>
+                  <p><?php echo $nombre; ?></p>
                 </li>
                 <!-- Menu Body -->
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                    <a href="pages/Perfil_director.php" class="btn btn-default btn-flat">Perfil</a>
                   </div>
                   <div class="pull-right">
                     <a href="../modelo/salir.php" class="btn btn-default btn-flat">Cerrar sesión</a>
@@ -132,16 +137,20 @@
                   <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                  <input type="text" class="form-control" placeholder="Cedula" name="cedula" id="cedula">
+                  <input type="number" class="form-control" placeholder="Cedula" name="cedula" id="cedula">
                   <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                  <input type="text" class="form-control" placeholder="Codigo" name="codigo" id="codigo">
+                  <input type="number" class="form-control" placeholder="Codigo" name="codigo" id="codigo">
                   <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                   <input type="text" class="form-control" placeholder="Dirección" name="direccion" id="direccion">
                   <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <input type="number" class="form-control" placeholder="Teléfono" name="telefono" id="telefono">
+                  <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                   <input type="email" class="form-control" placeholder="Correo institucional" name="correo" id="correo">

@@ -12,7 +12,7 @@ $telefonoProfesor = $_POST['telefono'];
 $correoProfesor = $_POST['correo'];
 
 $sql = "INSERT INTO persona (documento, nombre, codigo, direccion, telefono, correo, rol) 
-        VALUES ('$cedulaProfesor', '$nombreProfesor', '$codigoProfesor', '$direccionProfesor', '$telefonoProfesor', '$correoProfesor', 2)";
+        VALUES ('$cedulaProfesor', '$nombreProfesor', '$codigoProfesor', '$direccionProfesor', '$telefonoProfesor', '$correoProfesor', 3)";
 
 $ejecutar = mysqli_query($conexion, $sql);
 if ($ejecutar) {

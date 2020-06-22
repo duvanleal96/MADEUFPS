@@ -5,6 +5,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 
+<?php
+
+session_start();
+$nombre = $_SESSION['usuario'];
+
+?>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,13 +67,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- User image -->
                 <li class="user-header">
                   <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
-                  <p>Docente</p>
+                  <p><?php echo $nombre; ?></p>
                 </li>
                 <!-- Menu Body -->
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                    <a href="pages/Perfil_docente.php" class="btn btn-default btn-flat">Perfil</a>
                   </div>
                   <div class="pull-right">
                     <a href="pages/salir.php" class="btn btn-default btn-flat">Cerrar sesion</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2020 a las 16:21:27
+-- Tiempo de generación: 22-06-2020 a las 18:37:18
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -88,6 +88,7 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`id_curso`, `nombre`, `docente`, `num_estudiantes`) VALUES
+(123, 'bases de datos', 1151464, 3),
 (987, 'seguridad', 1151464, 10);
 
 -- --------------------------------------------------------
@@ -125,6 +126,14 @@ CREATE TABLE `grupo_alumno` (
   `id_curso` int(11) NOT NULL,
   `nota` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `grupo_alumno`
+--
+
+INSERT INTO `grupo_alumno` (`idgrupo`, `id_alumno`, `id_curso`, `nota`) VALUES
+(1157, 9638, 987, 3.5),
+(1158, 9638, 123, 2);
 
 -- --------------------------------------------------------
 
@@ -310,7 +319,7 @@ ALTER TABLE `evaluar_actividad`
 -- AUTO_INCREMENT de la tabla `grupo_alumno`
 --
 ALTER TABLE `grupo_alumno`
-  MODIFY `idgrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1157;
+  MODIFY `idgrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1159;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

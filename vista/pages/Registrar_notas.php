@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <?php
 
 session_start();
-$codigo = $_SESSION['codigo'];
+$codigo = $_SESSION['codigo']; 
+require_once 'header.php';
 
 ?>
-
-<?php require_once 'header.php'; ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -37,7 +37,8 @@ $codigo = $_SESSION['codigo'];
                           <?php
                           try {
                             require_once '../../controlador/conexion.php';
-                            echo '<h2>' . $codigo . '</h2>';
+                            session_start();
+                            $nombre = $_SESSION['usuario'];
                             $sql = "SELECT id_curso, nombre FROM curso WHERE docente = '$codigo'";
                             $resultado = $conexion->query($sql);
                           } catch (Exception $e) {
@@ -72,7 +73,7 @@ $codigo = $_SESSION['codigo'];
                 <!-- /.box-header -->
                 <div class="box-body">
                   <table id="example1" class="table table-bordered table-striped">
-                    <thead>
+                    <thead class="bg-gray-active color-palette">
                       <tr>
                         <th>C&oacute;digo</th>
                         <th>Nombre</th>
@@ -199,5 +200,4 @@ $codigo = $_SESSION['codigo'];
   <script src="../js/nota.js"></script>
   <!-- ./wrapper -->
 </body>
-
 </html>

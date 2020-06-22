@@ -15,6 +15,7 @@ $nombre = $_SESSION['usuario'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <html lang="es">
   <title>MADEUFPS</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -46,7 +47,6 @@ $nombre = $_SESSION['usuario'];
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>MADEUFPS</b></span>
       </a>
-
       <!-- Header Navbar -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -86,7 +86,6 @@ $nombre = $_SESSION['usuario'];
         </div>
       </nav>
     </header>
-
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
@@ -101,7 +100,6 @@ $nombre = $_SESSION['usuario'];
           </div>
         </div>
         <!-- search form -->
-
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
@@ -115,8 +113,8 @@ $nombre = $_SESSION['usuario'];
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="pages/registroCurso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
-              <li><a href="pages/registroNotas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
+              <li><a href="pages/Registrar_curso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
+              <li><a href="pages/Registrar_notas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
             </ul>
           </li>
         </ul>
@@ -124,9 +122,6 @@ $nombre = $_SESSION['usuario'];
       <!-- /.sidebar -->
     </aside>
     <!-- Left side column. contains the logo and sidebar -->
-    <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -207,7 +202,6 @@ $nombre = $_SESSION['usuario'];
   </div>
   <!-- ./wrapper -->
   <!-- REQUIRED JS SCRIPTS -->
-
   <!-- jQuery 3 -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -219,5 +213,4 @@ $nombre = $_SESSION['usuario'];
   <!-- Javascript Sweetalert2 -->
   <script src="js/sweetalert2.min.js"></script>
 </body>
-
 </html>

@@ -20,14 +20,9 @@ $correo = $_SESSION['correo'];
 <?php require_once 'header.php'; ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
     <?php require_once 'menuDocente.php'; ?>
-
     <div class="wrapper">
         <!-- Content Wrapper. Contains page content -->
-        <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">

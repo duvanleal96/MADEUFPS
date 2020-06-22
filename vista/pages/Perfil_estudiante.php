@@ -20,7 +20,6 @@ $correo = $_SESSION['correo'];
 <?php require_once 'header.php'; ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
     <!-- Main Header -->
     <header class="main-header">
         <!-- Logo -->
@@ -94,19 +93,16 @@ $correo = $_SESSION['correo'];
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Analisis y Diseño</a></li>
+                        <li><a href="../indexEstudiante.php"><i class="fa fa-circle-o"></i>Mis notas</a></li>
+                        <li><a href="../indexEstudiante.php"><i class="fa fa-circle-o"></i>Analisis y Diseño</a></li>
                     </ul>
                 </li>
             </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
-
     <div class="wrapper">
         <!-- Content Wrapper. Contains page content -->
-        <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -159,5 +155,4 @@ $correo = $_SESSION['correo'];
     </div>
     <!-- ./wrapper -->
 </body>
-
 </html>

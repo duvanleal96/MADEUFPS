@@ -1,10 +1,11 @@
-<?php
+<?php 
 
-session_start();
-$nombre = $_SESSION['usuario'];
+if(!isset($_SESSION)){
+    session_start();
+    $nombre = $_SESSION['usuario'];
+}
 
 ?>
-
 <!-- Main Header -->
 <header class="main-header">
     <!-- Logo -->

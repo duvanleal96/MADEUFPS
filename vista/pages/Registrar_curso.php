@@ -5,17 +5,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 
-<?php require_once 'header.php'; ?>
+<?php 
+
+session_start();
+$nombre = $_SESSION['usuario'];
+require_once 'header.php'; 
+
+?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
   <?php require_once 'menuDocente.php'; ?>
-
   <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
-    <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -50,7 +51,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     }catch(Exception $e){
                       $error = $e->getMessage();
                     }
-
                     while ($estudiante = mysqli_fetch_array($resultado)) { ?>
                       <option value="<?php echo $estudiante['codigo']?>"><?php echo $estudiante['codigo'] . ' - ' . $estudiante['nombre']; ?></option>
                     <?php } ?>
@@ -77,14 +77,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </section>
       <!-- /.content -->
     </div>
-
     <!-- /.content-wrapper -->
-
     <!-- Main Footer -->
     <div class="control-sidebar-bg"></div>
     <?php require_once 'footer.php'; ?>
   </div>
   <!-- ./wrapper -->
 </body>
-
 </html>

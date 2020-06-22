@@ -167,32 +167,33 @@ $correo = $_SESSION['correo'];
             </section>
             <!-- /.content -->
         </div>
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="pull-right hidden-xs">
-            </div>
-            <!-- Default to the left -->
-            <strong>
-                <span>Copyright &copy; MADEUFPS
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                </span>
-            </strong>
-        </footer>
-        <!-- /.content-wrapper -->
-        <!-- ./wrapper -->
-        <!-- REQUIRED JS SCRIPTS -->
-        <!-- jQuery 3 -->
-        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../dist/js/adminlte.min.js"></script>
+    </div>
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+        </div>
+        <!-- Default to the left -->
+        <strong>
+            <span>Copyright &copy; MADEUFPS
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+            </span>
+        </strong>
+    </footer>
+    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
 
-        <script src="../js/registro.js"></script>
-        <!-- Javascript Sweetalert2 -->
-        <script src="../js/sweetalert2.min.js"></script>
+    <script src="../js/registro.js"></script>
+    <!-- Javascript Sweetalert2 -->
+    <script src="../js/sweetalert2.min.js"></script>
 </body>
 
 </html>

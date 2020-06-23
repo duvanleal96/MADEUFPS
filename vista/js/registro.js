@@ -17,7 +17,7 @@ $(document).ready(function() {
                 if (resultado.respuesta == 'exito') {
                     Swal.fire(
                         'Correcto!',
-                        'Se ha registrado correctamente el profesor',
+                        'Se ha registrado correctamente el profesor ',
                         'success'
                     )
                     document.getElementById("FormRegistroProfesor").reset();
@@ -93,7 +93,7 @@ $(document).ready(function() {
                 if (resultado.respuesta == 'exito') {
                     Swal.fire(
                         'Correcto!',
-                        'Se ha registrado correctamente el profesor',
+                        'Se ha registrado correctamente el curso',
                         'success'
                     )
                     document.getElementById("FormRegistroCurso").reset();

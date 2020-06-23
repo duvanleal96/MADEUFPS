@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-
 <?php
-
 session_start();
 $nombre = $_SESSION['usuario'];
-
 ?>
 
 <head>
@@ -100,6 +97,18 @@ $nombre = $_SESSION['usuario'];
           <li class="header">Menu</li>
           <li class="treeview">
             <a href="#">
+              <i class="fa fa-file"></i>
+              <span>Curso</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="pages/Registrar_curso.php"><i class="fa fa-circle-o"></i>Registrar curso</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
               <i class="fa fa-files-o"></i>
               <span>Registrar Docente</span>
               <span class="pull-right-container">
@@ -184,6 +193,7 @@ $nombre = $_SESSION['usuario'];
         </span>
       </strong>
     </footer>
+  </div>
     <!-- /.content-wrapper -->
     <!-- ./wrapper -->
     <!-- REQUIRED JS SCRIPTS -->

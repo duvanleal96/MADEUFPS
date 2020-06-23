@@ -4,7 +4,8 @@
 <?php
 
 session_start();
-$codigo = $_SESSION['codigo']; 
+$nombre = $_SESSION['usuario'];
+$codigo = $_SESSION['codigo'];
 require_once 'header.php';
 
 ?>
@@ -151,7 +152,7 @@ require_once 'header.php';
        immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
   </div>
-  <!-- START MODAL USER -->
+  <!-- START MODAL NOTA -->
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -187,17 +188,13 @@ require_once 'header.php';
           </div>
         </form>
       </div>
-      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
   </div>
-  <!-- END MODAL USER -->
-  </div>
-  </div>
-  </div>
+  <!-- END MODAL NOTA -->
   <!-- END CONTENIDO DE LA PAGINA -->
   <script src="../js/ver.js"></script>
   <script src="../js/nota.js"></script>
   <!-- ./wrapper -->
 </body>
+
 </html>

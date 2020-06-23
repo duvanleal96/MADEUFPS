@@ -29,6 +29,8 @@ $codigo = $_SESSION['codigo'];
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- Custom Sweetalert2 -->
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -142,6 +144,7 @@ $codigo = $_SESSION['codigo'];
                       <th>Código</th>
                       <th>Materia</th>
                       <th>Nota</th>
+                      <th>Actividad</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -157,6 +160,11 @@ $codigo = $_SESSION['codigo'];
                           <td><?php echo $estudiante['id_curso'] ?></td>
                           <td><?php echo $estudiante['nombre'] ?></td>
                           <td><?php echo $estudiante['nota'] ?></td>
+                          <td align="center">
+                            <a class="btn btn-social-icon btn-facebook" data-toggle="modal" data-target="#modal-default">
+                              <i class="fa fa-upload"></i>
+                            </a>
+                          </td>
                         </tr>
                     <?php }
                     } catch (Exception $e) {
@@ -178,6 +186,37 @@ $codigo = $_SESSION['codigo'];
       </section>
       <!-- /.content -->
     </div>
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="formActividadEstudiante" name="formActividadEstudiante" action="../modelo/cargar_actividad.php" method="post">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir nota</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                  <div class="form-group has-feedback">
+                    <input type="file" class="form-control" id="actividad_estudiante" name="actividad_estudiante">
+                  </div>
+                </div>
+                <div class="col-xs-2"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <!-- To the right -->
@@ -213,6 +252,10 @@ $codigo = $_SESSION['codigo'];
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+  <script src="js/ver.js"></script>
+  <!-- Javascript Sweetalert2 -->
+  <script src="js/sweetalert2.min.js"></script>
+  <script src="js/evidencia.js"></script>
   <!-- page script -->
   <script>
     $(document).ready(function() {
@@ -235,4 +278,5 @@ $codigo = $_SESSION['codigo'];
     });
   </script>
 </body>
+
 </html>

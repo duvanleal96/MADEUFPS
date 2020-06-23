@@ -6,8 +6,9 @@ require_once '../controlador/conexion.php';
 
 $codigo = $_POST['codigoEstudiante'];
 $nota = $_POST['notaEstudiante'];
+$materia = $_POST['materia'];
 
-$sql = "UPDATE grupo_alumno SET nota = '$nota' WHERE id_alumno = '$codigo'";
+$sql = "UPDATE grupo_alumno SET nota = '$nota' WHERE id_alumno = '$codigo' and id_curso = '$materia'";
 
 $ejecutar = mysqli_query($conexion, $sql);
 if ($ejecutar) {

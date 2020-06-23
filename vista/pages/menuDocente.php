@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
     $nombre = $_SESSION['usuario'];
 }
@@ -78,8 +78,8 @@ if(!isset($_SESSION)){
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="Registrar_curso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
                     <li><a href="Registrar_notas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
+                    <li><a href="Cargar_actividad.php"><i class="fa fa-circle-o"></i>Actividad</a></li>
                 </ul>
             </li>
             <li class="treeview">

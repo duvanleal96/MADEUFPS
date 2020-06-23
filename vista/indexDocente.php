@@ -106,15 +106,27 @@ $nombre = $_SESSION['usuario'];
           <li class="header">Menu</li>
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-files-o"></i>
-              <span>Registro Curso</span>
+              <i class="fa fa-file"></i>
+              <span>Curso</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="pages/Registrar_curso.php"><i class="fa fa-circle-o"></i>Registro Curso</a></li>
               <li><a href="pages/Registrar_notas.php"><i class="fa fa-circle-o"></i>Notas</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user"></i>
+              <span>Estudiante</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="pages/Registrar_estudiante.php"><i class="fa fa-circle-o"></i>Registro estudiante</a></li>
+              <li><a href="pages/Asignar_estudiante.php"><i class="fa fa-circle-o"></i>Asignar estudiante</a></li>
             </ul>
           </li>
         </ul>
@@ -146,16 +158,16 @@ $nombre = $_SESSION['usuario'];
                 <div class="form-group" style="width: 100%;">
                   <select class="form-control" id="docente" name="docente">
                     <option>Seleccione el doncente</option>
-                    <?php 
+                    <?php
                     try {
                       require_once '../controlador/conexion.php';
                       $sql = "SELECT persona.codigo, persona.nombre FROM persona INNER JOIN rol ON persona.rol = rol.id_rol where rol.nombre = 'Docente'";
                       $resultado = $conexion->query($sql);
-                    } catch (Exception $e){
+                    } catch (Exception $e) {
                       $error = $e->getMessage();
                     }
                     while ($estudiante = mysqli_fetch_array($resultado)) { ?>
-                      <option value="<?php echo $estudiante['codigo']?>"><?php echo $estudiante['codigo'] . ' - ' . $estudiante['nombre']; ?></option>
+                      <option value="<?php echo $estudiante['codigo'] ?>"><?php echo $estudiante['codigo'] . ' - ' . $estudiante['nombre']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -213,4 +225,5 @@ $nombre = $_SESSION['usuario'];
   <!-- Javascript Sweetalert2 -->
   <script src="js/sweetalert2.min.js"></script>
 </body>
+
 </html>

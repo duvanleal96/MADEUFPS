@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2020 a las 18:37:18
+-- Tiempo de generación: 23-06-2020 a las 07:17:58
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -56,8 +56,16 @@ CREATE TABLE `calificar_estudiante` (
 
 CREATE TABLE `cargar_actividad` (
   `id_cargar` int(11) NOT NULL,
-  `id_actividad` int(11) DEFAULT NULL
+  `ruta_actividad` varchar(50) NOT NULL,
+  `id_grupo_alumno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cargar_actividad`
+--
+
+INSERT INTO `cargar_actividad` (`id_cargar`, `ruta_actividad`, `id_grupo_alumno`) VALUES
+(9, 'practicas_soft_practicas.sql', 9638);
 
 -- --------------------------------------------------------
 
@@ -67,7 +75,8 @@ CREATE TABLE `cargar_actividad` (
 
 CREATE TABLE `cargar_microcurriculo` (
   `id_carga` int(11) NOT NULL,
-  `documento` int(11) DEFAULT NULL
+  `id_curso` int(11) NOT NULL,
+  `ruta_archivo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -89,7 +98,8 @@ CREATE TABLE `curso` (
 
 INSERT INTO `curso` (`id_curso`, `nombre`, `docente`, `num_estudiantes`) VALUES
 (123, 'bases de datos', 1151464, 3),
-(987, 'seguridad', 1151464, 10);
+(987, 'seguridad', 1151464, 10),
+(8888, 'movil', 1151464, 3);
 
 -- --------------------------------------------------------
 
@@ -132,8 +142,8 @@ CREATE TABLE `grupo_alumno` (
 --
 
 INSERT INTO `grupo_alumno` (`idgrupo`, `id_alumno`, `id_curso`, `nota`) VALUES
-(1157, 9638, 987, 3.5),
-(1158, 9638, 123, 2);
+(1157, 9638, 987, 4),
+(1158, 9638, 123, 3);
 
 -- --------------------------------------------------------
 
@@ -216,14 +226,16 @@ ALTER TABLE `calificar_estudiante`
 --
 ALTER TABLE `cargar_actividad`
   ADD PRIMARY KEY (`id_cargar`),
-  ADD KEY `id_actividad` (`id_actividad`);
+  ADD KEY `id_actividad` (`ruta_actividad`),
+  ADD KEY `id_grupo_alumno` (`id_grupo_alumno`);
 
 --
 -- Indices de la tabla `cargar_microcurriculo`
 --
 ALTER TABLE `cargar_microcurriculo`
   ADD PRIMARY KEY (`id_carga`),
-  ADD KEY `documento` (`documento`);
+  ADD KEY `documento` (`ruta_archivo`),
+  ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `curso`
@@ -295,13 +307,13 @@ ALTER TABLE `calificar_estudiante`
 -- AUTO_INCREMENT de la tabla `cargar_actividad`
 --
 ALTER TABLE `cargar_actividad`
-  MODIFY `id_cargar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cargar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `cargar_microcurriculo`
 --
 ALTER TABLE `cargar_microcurriculo`
-  MODIFY `id_carga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `descargar_actividad`
@@ -336,6 +348,18 @@ ALTER TABLE `tipo_actividad`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `cargar_actividad`
+--
+ALTER TABLE `cargar_actividad`
+  ADD CONSTRAINT `cargar_actividad_ibfk_1` FOREIGN KEY (`id_grupo_alumno`) REFERENCES `grupo_alumno` (`id_alumno`);
+
+--
+-- Filtros para la tabla `cargar_microcurriculo`
+--
+ALTER TABLE `cargar_microcurriculo`
+  ADD CONSTRAINT `cargar_microcurriculo_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `grupo_alumno` (`id_curso`);
 
 --
 -- Filtros para la tabla `curso`

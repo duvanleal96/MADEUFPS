@@ -117,7 +117,7 @@ $codigo = $_SESSION['codigo'];
             </a>
             <ul class="treeview-menu">
               <li><a href="indexEstudiante.php"><i class="fa fa-circle-o"></i>Mis notas</a></li>
-              <li><a href="indexEstudiante.php"><i class="fa fa-circle-o"></i>Analisis y Diseño</a></li>
+              <!--li><a href="indexEstudiante.php"><i class="fa fa-circle-o"></i>Analisis y Diseño</a></li!-->
             </ul>
           </li>
         </ul>
